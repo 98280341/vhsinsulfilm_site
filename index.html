@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>VHS Insulfilm</title>
   <link href="estilo.css" rel="stylesheet" />
+  <script>
+    function enviarParaWhatsApp(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const tel = document.getElementById('tel').value;
+      const servico = document.getElementById('servico').value;
+
+      const mensagem = encodeURIComponent(
+        'Olá, meu nome é ' + nome + 
+        ' (' + tel + '). Gostaria de agendar o seguinte serviço:\n' + servico
+      );
+      window.open('https://wa.me/5527998280341?text=' + mensagem, '_blank');
+    }
+  </script>
 </head>
 <body>
   <main class="bg-gradient">
@@ -33,10 +47,10 @@
 
     <section id="agendamento" class="agendamento">
       <h2>Agende seu serviço</h2>
-      <form>
-        <input type="text" placeholder="Nome" required/>
-        <input type="tel" placeholder="WhatsApp" required/>
-        <textarea placeholder="Serviço desejado" required></textarea>
+      <form onsubmit="enviarParaWhatsApp(event)">
+        <input id="nome" type="text" placeholder="Nome" required/>
+        <input id="tel" type="tel" placeholder="WhatsApp" required/>
+        <textarea id="servico" placeholder="Serviço desejado" required></textarea>
         <button type="submit">Enviar</button>
       </form>
     </section>
