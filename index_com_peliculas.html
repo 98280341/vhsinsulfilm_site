@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+
+<html lang="pt-br">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>VHS Insulfilm</title>
+<link href="estilo.css" rel="stylesheet"/>
+<script>
+    function enviarParaWhatsApp(event) {
+      event.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const tel = document.getElementById('tel').value;
+      const servico = document.getElementById('servico').value;
+
+      const mensagem = encodeURIComponent(
+        'Olá, meu nome é ' + nome + 
+        ' (' + tel + '). Gostaria de agendar o seguinte serviço:\n' + servico
+      );
+      window.open('https://wa.me/5527998280341?text=' + mensagem, '_blank');
+    }
+  </script>
+</head>
+<body>
+<main class="bg-gradient">
+<header>
+<img alt="VHS Insulfilm" class="logo" src="logo-vhs.png"/>
+<h1>VHS Insulfilm</h1>
+<p>Especialistas em película automotiva e residencial</p>
+<a class="btn" href="#agendamento">Agende seu serviço</a>
+</header>
+<section class="services">
+<h2>Nossos Serviços</h2>
+<ul>
+<li>Película automotiva (G5, espelhada, etc)</li>
+<li>Película arquitetônica para residências e comércios</li>
+<li>Película de segurança e controle térmico</li>
+<li>Atendimento personalizado com agendamento</li>
+</ul>
+</section>
+<section class="about">
+<h2>Sobre a VHS</h2>
+<p>Qualidade, comprometimento e os melhores materiais do mercado. Garantimos satisfação e proteção para seu veículo ou imóvel com acabamento profissional e cortes computadorizados.</p>
+</section>
+<section class="peliculas-btn"><h2>Conheça Nossas Películas</h2><a class="btn" href="peliculas.html">Ver tipos de películas</a></section><section class="agendamento" id="agendamento">
+<h2>Agende seu serviço</h2>
+<form onsubmit="enviarParaWhatsApp(event)">
+<input id="nome" placeholder="Nome" required="" type="text"/>
+<input id="tel" placeholder="WhatsApp" required="" type="tel"/>
+<textarea id="servico" placeholder="Serviço desejado" required=""></textarea>
+<button type="submit">Enviar</button>
+</form>
+</section>
+<footer>
+<p>© 2025 VHS Insulfilm | 
+        <a href="https://www.instagram.com/vhsinsulfilm/">Instagram</a> | 
+        <a href="https://wa.me/5527998280341">WhatsApp</a>
+</p>
+</footer>
+</main>
+</body>
+</html>
